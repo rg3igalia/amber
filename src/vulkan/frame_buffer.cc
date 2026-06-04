@@ -169,7 +169,8 @@ void FrameBuffer::ChangeFrameToDrawLayout(CommandBuffer* command) {
                     VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT,
                     // Depth attachment
                     VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL,
-                    VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT);
+                    (VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT |
+                     VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT));
 }
 
 void FrameBuffer::ChangeFrameToProbeLayout(CommandBuffer* command) {
